@@ -196,8 +196,9 @@ class Zenodo:
                 print("::endgroup::")
                 print("::group::BucketUploadResponse")
                 print(json.dumps(response.json(), indent=4))
+                print(json.dumps(response.json(), indent=4))
                 print("::endgroup::")
-                sys.exit("Trouble uploading artifact %s to bucket" % archive)
+                sys.exit("Trouble uploading artifact %s to bucket with response code %s" % (archive, response.status_code))
 
     def publish(self, data):
         """
