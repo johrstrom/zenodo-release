@@ -189,7 +189,10 @@ class Zenodo:
                 params=self.params,
             )
             if response.status_code != 200:
-                sys.exit("Trouble uploading artifact %s to bucket" % archive)
+                sys.exit(
+                    "Trouble uploading artifact %s to bucket with response code %s" %
+                    archive, response.status_code
+                )
 
     def publish(self, data):
         """
