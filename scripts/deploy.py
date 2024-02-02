@@ -195,7 +195,7 @@ class Zenodo:
                 print(json.dumps(upload, indent=4))
                 print("::endgroup::")
                 print("::group::BucketUploadResponse")
-                print(json.dumps(response, indent=4))
+                print(json.dumps(response.json(), indent=4))
                 print("::endgroup::")
                 sys.exit("Trouble uploading artifact %s to bucket" % archive)
 
