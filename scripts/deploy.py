@@ -191,6 +191,12 @@ class Zenodo:
                 params=self.params,
             )
             if response.status_code != 200:
+                print("::group::BucketUploadRequest")
+                print(json.dumps(upload, indent=4))
+                print("::endgroup::")
+                print("::group::BucketUploadResponse")
+                print(json.dumps(response, indent=4))
+                print("::endgroup::")
                 sys.exit("Trouble uploading artifact %s to bucket" % archive)
 
     def publish(self, data):
