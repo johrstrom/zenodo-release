@@ -145,7 +145,7 @@ class Zenodo:
             draft = target_deposit
         else:
             # found the existing deposit - so let's make a new version.
-            url = "%s/actions/newversion" % target_deposit["links"]["self"]
+            url = "%s/actions/newversion" % target_deposit["links"]["newversion"]
             response = self.post(url)
             if response.status_code not in [200, 201]:
                 print("request url was %s. target_deposit['links']['newversion'] is %s" % (url, target_deposit["links"]["newversion"]))
