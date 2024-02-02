@@ -190,7 +190,7 @@ class Zenodo:
                 data=fp,
                 params=self.params,
             )
-            if response.status_code != 200:
+            if response.status_code not in [200, 201]:
                 print("::group::BucketUploadRequest")
                 print(json.dumps(upload, indent=4))
                 print("::endgroup::")
