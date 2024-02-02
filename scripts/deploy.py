@@ -148,6 +148,9 @@ class Zenodo:
             url = "%s/actions/newversion" % target_deposit["links"]["self"]
             response = self.post(url)
             if response.status_code not in [200, 201]:
+                print("::group::TargetDeposit")
+                print(json.dumps(target_deposit, indent=4))
+                print("::endgroup::")
                 sys.exit(
                     "Cannot create a new version for doi '%s'. %s. POST url was %s"
                     % (doi, response.json(), url)
